@@ -1,0 +1,9 @@
+<div class="container mt-5">
+  <h2>Upload an Image for OCR</h2>
+  <form (submit)="onSubmit()">
+    <div class="mb-3">
+      <input type="file" (change)="onFileSelected($event)" class="form-control" />
+    </div>
+    <button type="submit" class="btn btn-primary" [disabled]="!selectedFile">Upload</button>
+  </form>
+</div>

@@ -1,13 +1,34 @@
 import { Component } from '@angular/core';
-import { RouterOutlet } from '@angular/router';
+import { CommonModule } from '@angular/common';
+import { RouterModule } from '@angular/router';
+import { HttpClient } from '@angular/common/http';  // Import HttpClient directly if needed
 
 @Component({
   selector: 'app-root',
-  standalone: true,
-  imports: [RouterOutlet],
+  standalone: true,  // This makes the component standalone
+  imports: [CommonModule, RouterModule],  // Use the necessary imports here
   templateUrl: './app.component.html',
-  styleUrl: './app.component.css'
+  styleUrls: ['./app.component.css']
 })
 export class AppComponent {
   title = 'OCRFrontend';
+
+  constructor(private http: HttpClient) { }  // Inject HttpClient service here
+
+  openFileSelector(): void {
+    const fileInput = document.querySelector('#fileInput') as HTMLInputElement;
+    if (fileInput) {
+      fileInput.click(); // Open the file input dialog
+    } else {
+      console.error('File input element not found');
+    }
+  }
+
+  onFileSelected(event: any): void {
+    const file = event.target.files[0]; // Get the selected file
+    if (file) {
+      console.log('Selected file:', file);
+      // Handle file upload logic here
+    }
+  }
 }
