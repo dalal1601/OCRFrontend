@@ -2,9 +2,12 @@ import { Routes, RouterModule } from '@angular/router';
 import { NgModule } from '@angular/core';
 import { UploadComponent } from './upload/upload.component';
 import { OcrResultComponent } from './ocr-result/ocr-result.component';
+import {LoginComponent} from './login/login.component';
 export const routes: Routes = [
   { path: '', component: UploadComponent },
-  { path: 'results', component: OcrResultComponent }
+  { path: 'results', component: OcrResultComponent },
+  { path: 'login', component: LoginComponent }
+
 ];
 /*@NgModule({
   imports: [RouterModule.forRoot(routes)],

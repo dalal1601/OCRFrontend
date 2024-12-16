@@ -1,6 +1,13 @@
 import { Injectable } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
+import {HttpClient, HttpHeaders} from '@angular/common/http';
 import { Observable } from 'rxjs';
+import {apiURL} from '../config';
+
+const httpOptions : {headers: HttpHeaders} = {
+  headers : new HttpHeaders({
+    'content-Type' : 'application/json'
+  })
+};
 
 @Injectable({
   providedIn: 'root'  // This ensures the service is available globally
@@ -12,6 +19,8 @@ export class OcrService {
     const formData = new FormData();
     formData.append('file', file);
 
-    return this.http.post('YOUR_API_ENDPOINT_HERE', formData);
+    // Replace with your backend endpoint
+    return this.http.post(apiURL+'/upload', formData);
   }
+
 }
