@@ -1,5 +1,6 @@
 import { Injectable } from '@angular/core';
 import { UserModel } from '../models/user.model';
+import {Router} from '@angular/router';
 
 @Injectable({
   providedIn: 'root'
@@ -13,7 +14,7 @@ export class AuthService {
   public isloggedIn: boolean = false;
   public roles!: string[];
 
-  constructor() {}
+  constructor(private router : Router) {}
 
   SignIn(user: UserModel): boolean {
     let validUser: boolean = false;
@@ -33,10 +34,19 @@ export class AuthService {
 
     return validUser;
   }
-  isCreate(): boolean {
-    if(!this.roles)
-      return false
-    return (this.roles.indexOf('CREATE')>-1);
+
+  hasRole(role: string): boolean {
+    if (!this.roles) return false;
+    return this.roles.includes(role);
+  }
+
+  logout(){
+    this.loggedUser = undefined!;
+    this.isloggedIn = false;
+    this.roles = undefined!;
+    localStorage.removeItem('loggedUser');
+    localStorage.removeItem('isloggedIn');
+    this.router.navigate(['login']);
 
   }
 }

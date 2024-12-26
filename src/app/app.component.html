@@ -1,13 +1,33 @@
 <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
   <a class="navbar-brand" href="#">OCR Project</a>
+  <div class="dropdown">
+    <button
+      class="btn btn-secondary dropdown-toggle"
+      type="button"
+      id="testDropdown"
+      data-bs-toggle="dropdown"
+      aria-haspopup="true"
+      aria-expanded="false">
+    <div *ngIf="authService.isloggedIn; then thenBlock else elseBlock"></div>
+    <ng-template #thenBlock>{{ authService.loggedUser}}</ng-template>
+    <ng-template #elseBlock>CONNEXION</ng-template>
+    </button>
+
+    <ul class="dropdown-menu" aria-labelledby="testDropdown">
+      <li><a  *ngIf="!authService.isloggedIn" class="dropdown-item" routerLink="login">Login</a></li>
+      <li><a *ngIf="authService.isloggedIn" class="dropdown-item" (click)="logout()" >Logout</a></li>
+    </ul>
+  </div>
+
   <div class="collapse navbar-collapse">
+
     <ul class="navbar-nav mr-auto">
       <li class="nav-item">
         <a class="nav-link" routerLink="/">Home</a>
       </li>
     </ul>
-    <!-- Add an Upload Button to the Navbar -->
-    <button class="btn btn-primary" (click)="openFileSelector()">Upload Image</button>
+
+
   </div>
 </nav>
 

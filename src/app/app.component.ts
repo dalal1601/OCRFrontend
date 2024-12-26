@@ -1,7 +1,8 @@
 import { Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { RouterModule } from '@angular/router';
-import { HttpClient } from '@angular/common/http';  // Import HttpClient directly if needed
+import { HttpClient } from '@angular/common/http';
+import {AuthService} from './services/auth.service';  // Import HttpClient directly if needed
 
 @Component({
   selector: 'app-root',
@@ -13,8 +14,9 @@ import { HttpClient } from '@angular/common/http';  // Import HttpClient directl
 export class AppComponent {
   title = 'OCRFrontend';
 
-  constructor(private http: HttpClient) { }  // Inject HttpClient service here
-
+  //constructor(private http: HttpClient) { }  // Inject HttpClient service here
+  constructor(public  authService : AuthService) {
+  }
   openFileSelector(): void {
     const fileInput = document.querySelector('#fileInput') as HTMLInputElement;
     if (fileInput) {
@@ -30,5 +32,8 @@ export class AppComponent {
       console.log('Selected file:', file);
       // Handle file upload logic here
     }
+  }
+  logout(){
+    this.authService.logout();
   }
 }
