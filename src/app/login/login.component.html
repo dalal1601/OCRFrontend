@@ -14,6 +14,10 @@
         <div class="row justify-content-md-center">
           <button type="button" (click)="onLoggedin()" class="btn btn-success">Connexion</button>
         </div>
+        <!-- Error Message -->
+        <div *ngIf="error === 1" class="alert alert-danger mt-3" role="alert">
+          Login failed. Please check your username and password.
+        </div>
       </form>
     </div>
   </div>
