@@ -10,8 +10,8 @@ export const routes: Routes = [
   { path: 'upload', component: UploadComponent, canActivate : [cardGuard] },       // Route for UploadComponent
   { path: 'results', component: OcrResultComponent },   // Route for OCR results
   { path: 'login', component: LoginComponent },
-  { path: 'forbidden', component: ForbiddenComponent }          // Route for LoginComponent
-// Route for LoginComponent
+  { path: 'forbidden', component: ForbiddenComponent } ,         // Route for LoginComponent
+  { path: 'ocr-result', component: OcrResultComponent }
 
 ];
 /*@NgModule({

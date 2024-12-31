@@ -26,6 +26,13 @@ export class OcrService {
   uploadImage(file: File): Observable<any> {
     const formData = new FormData();
     formData.append('file', file);
+    console.log('JWT Token:', this.jwt);/////////////////////////////////////
+
+
+    const httpHeaders = new HttpHeaders({
+      'Authorization': this.jwt,
+      'Content-Type': 'application/json'
+    });
 
     // Replace with your backend endpoint
     return this.http.post(apiURL + '/upload', formData, { headers: this.httpHeaders });

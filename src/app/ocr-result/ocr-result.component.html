@@ -1,12 +1,14 @@
 <div class="container mt-5">
   <h2>OCR Results</h2>
   <div *ngIf="ocrData">
-    <h4>Extracted Text:</h4>
-    <pre>{{ ocrData.rawText }}</pre>
-
-    <h4>Confidence Score:</h4>
-    <p>{{ ocrData.confidence }}%</p>
+    <h2>OCR Results</h2>
+    <p><strong>First Name:</strong> {{ ocrData.firstName }}</p>
+    <p><strong>Last Name:</strong> {{ ocrData.lastName }}</p>
+    <p><strong>Date of Birth:</strong> {{ ocrData.birthDate }}</p>
+    <p><strong>Address:</strong> {{ ocrData.address }}</p>
+    <p><strong>Card Number:</strong> {{ ocrData.cardNumber }}</p>
   </div>
+
   <div *ngIf="!ocrData">
     <p>No data available. Please upload an image first.</p>
   </div>
