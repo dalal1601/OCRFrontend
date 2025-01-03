@@ -1,0 +1,25 @@
+/* Registration page */
+.card-body {
+  padding: 30px;
+}
+
+/* Success and error messages styling */
+.alert-success {
+  font-weight: bold;
+  text-align: center;
+  color: green;
+}
+
+.alert-danger {
+  font-weight: bold;
+  text-align: center;
+  color: red;
+}
+
+/* Register button style */
+button {
+  padding: 10px 20px;
+  font-size: 16px;
+  text-transform: uppercase;
+  border-radius: 5px;
+}

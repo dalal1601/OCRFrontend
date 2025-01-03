@@ -1,0 +1,42 @@
+/* Common card styles for both login and register cards */
+.card {
+  background-color: #fff;
+  border-radius: 10px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  padding: 30px; /* Same padding for both cards */
+}
+
+.card-body {
+  padding: 30px;
+}
+
+/* Set a consistent width for the cards */
+.card {
+  max-width: 400px;  /* You can adjust this value as needed */
+  margin: 0 auto;    /* Centers the card */
+}
+
+/* Ensure buttons have consistent size */
+button {
+  padding: 10px 20px;
+  font-size: 16px;
+  text-transform: uppercase;
+  border-radius: 5px;
+}
+
+/* Input fields focus effect */
+input:focus {
+  border-color: #28a745;
+  box-shadow: 0 0 5px rgba(40, 167, 69, 0.5);
+}
+
+/* Styling for error and success messages */
+.alert {
+  font-weight: bold;
+  text-align: center;
+}
+
+/* Optional: Add a bit of space for a clean look */
+.mt-3 {
+  margin-top: 20px;
+}

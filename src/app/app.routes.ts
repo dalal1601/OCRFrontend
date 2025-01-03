@@ -5,13 +5,16 @@ import { OcrResultComponent } from './ocr-result/ocr-result.component';
 import {LoginComponent} from './login/login.component';
 import {ForbiddenComponent} from './forbidden/forbidden.component';
 import {cardGuard} from './card.guard';
+import {RegisterComponent} from './register/register.component';
 export const routes: Routes = [
   { path: '', redirectTo: 'login', pathMatch: 'full' },  // Default route to 'login'
   { path: 'upload', component: UploadComponent, canActivate : [cardGuard] },       // Route for UploadComponent
   { path: 'results', component: OcrResultComponent },   // Route for OCR results
   { path: 'login', component: LoginComponent },
   { path: 'forbidden', component: ForbiddenComponent } ,         // Route for LoginComponent
-  { path: 'ocr-result', component: OcrResultComponent }
+  { path: 'ocr-result', component: OcrResultComponent },
+  { path: 'register', component: RegisterComponent }
+
 
 ];
 /*@NgModule({

@@ -2,8 +2,9 @@ import {Inject, Injectable, PLATFORM_ID} from '@angular/core';
 import { UserModel } from '../models/user.model';
 import {Router} from '@angular/router';
 import {JwtHelperService} from '@auth0/angular-jwt';
-import {HttpClient} from '@angular/common/http';
+import {HttpClient, HttpHeaders} from '@angular/common/http';
 import {isPlatformBrowser} from '@angular/common';
+import {Observable} from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
@@ -16,6 +17,9 @@ export class AuthService {
   public loggedUser!: string;
   public isloggedIn: boolean = false;
   public roles!: string[];
+
+  private apiUrl = 'http://localhost:8080/api/register';  // Your register API URL
+
 
   constructor(private router : Router, private httpClient : HttpClient, @Inject(PLATFORM_ID) private platformId: Object) {}
 
@@ -68,5 +72,11 @@ export class AuthService {
   isTokenExpired(): boolean {
     return this.helper.isTokenExpired(this.token);
   }
+  register(user: UserModel): Observable<UserModel> {
+    return this.httpClient.post<UserModel>(this.apiUrl, user, {
+      headers: new HttpHeaders().set('Content-Type', 'application/json')
+    });
+  }
+
 
 }
