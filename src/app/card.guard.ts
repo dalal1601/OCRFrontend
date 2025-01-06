@@ -7,7 +7,7 @@ export const cardGuard: CanActivateFn =
     const router = inject(Router);
     const authService = inject(AuthService);
 
-    if (authService.hasRole('ADMIN')) {
+    if (authService.hasRole('ADMIN') || authService.hasRole('USER')) {
       return true;
     } else {
       router.navigate(['forbidden']);
